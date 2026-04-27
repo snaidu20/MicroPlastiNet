@@ -1,0 +1,118 @@
+{
+  "task": "classify",
+  "n_train": 1500,
+  "n_val": 400,
+  "epochs": 10,
+  "best_val_acc": 0.95,
+  "final_val_acc": 0.9425,
+  "final_val_f1": 0.9405973463513669,
+  "history": [
+    {
+      "epoch": 1,
+      "train_loss": 0.855013241370519,
+      "val_loss": 0.48914873600006104,
+      "val_acc": 0.9025,
+      "val_f1": 0.898490632877801
+    },
+    {
+      "epoch": 2,
+      "train_loss": 0.532182385524114,
+      "val_loss": 0.45536649227142334,
+      "val_acc": 0.93,
+      "val_f1": 0.9268200199327096
+    },
+    {
+      "epoch": 3,
+      "train_loss": 0.43547088901201886,
+      "val_loss": 0.4056883454322815,
+      "val_acc": 0.9375,
+      "val_f1": 0.9342856837214988
+    },
+    {
+      "epoch": 4,
+      "train_loss": 0.3862520009279251,
+      "val_loss": 0.3860046714544296,
+      "val_acc": 0.945,
+      "val_f1": 0.9428789607135798
+    },
+    {
+      "epoch": 5,
+      "train_loss": 0.3564472397168477,
+      "val_loss": 0.3738137483596802,
+      "val_acc": 0.9375,
+      "val_f1": 0.935623486729158
+    },
+    {
+      "epoch": 6,
+      "train_loss": 0.34546061356862384,
+      "val_loss": 0.3677142560482025,
+      "val_acc": 0.93,
+      "val_f1": 0.9280275271103084
+    },
+    {
+      "epoch": 7,
+      "train_loss": 0.335315744082133,
+      "val_loss": 0.35602234303951263,
+      "val_acc": 0.95,
+      "val_f1": 0.9487503295387993
+    },
+    {
+      "epoch": 8,
+      "train_loss": 0.32639239728450775,
+      "val_loss": 0.35698549449443817,
+      "val_acc": 0.945,
+      "val_f1": 0.9433456874651863
+    },
+    {
+      "epoch": 9,
+      "train_loss": 0.3204776148001353,
+      "val_loss": 0.3591379374265671,
+      "val_acc": 0.94,
+      "val_f1": 0.9382335520085417
+    },
+    {
+      "epoch": 10,
+      "train_loss": 0.3230436096588771,
+      "val_loss": 0.3566681742668152,
+      "val_acc": 0.9425,
+      "val_f1": 0.9405973463513669
+    }
+  ],
+  "note": "Feature-extraction training (frozen EfficientNet-B0 backbone, trained head only)",
+  "data": "SYNTHETIC \u2014 see dataset.py for real data integration",
+  "detector": {
+    "task": "detect",
+    "epochs": 5,
+    "best_val_loss": 98.06999826431274,
+    "n_train_subset": 200,
+    "n_val_subset": 60,
+    "history": [
+      {
+        "epoch": 1,
+        "train_loss": 344.1422,
+        "val_loss": 298.2586
+      },
+      {
+        "epoch": 2,
+        "train_loss": 162.5474,
+        "val_loss": 257.678
+      },
+      {
+        "epoch": 3,
+        "train_loss": 126.022,
+        "val_loss": 121.3428
+      },
+      {
+        "epoch": 4,
+        "train_loss": 114.6891,
+        "val_loss": 132.3943
+      },
+      {
+        "epoch": 5,
+        "train_loss": 102.1871,
+        "val_loss": 98.07
+      }
+    ],
+    "note": "TinyYOLO 5 epochs on 200-sample synthetic subset (CPU demo run)"
+  }
+}

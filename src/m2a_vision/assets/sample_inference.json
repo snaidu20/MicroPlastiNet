@@ -1,0 +1,125 @@
+{
+  "image_path": "assets/test_sample.jpg",
+  "timestamp": "2025-01-15T14:32:07Z",
+  "sensor_id": "station_oge_01",
+  "pixel_size_um": 2.5,
+  "image_dimensions": {
+    "width": 416,
+    "height": 416
+  },
+  "total_count": 4,
+  "particles": [
+    {
+      "particle_id": 1,
+      "bbox": [
+        44,
+        260,
+        179,
+        343
+      ],
+      "bbox_normalized": [
+        0.268,
+        0.7248,
+        0.3245,
+        0.1995
+      ],
+      "size_mm": 0.3962,
+      "area_px2": 11205,
+      "shape": "fiber",
+      "shape_confidence": 0.9898,
+      "detection_confidence": 0.9215,
+      "gt_shape": "fiber",
+      "correct": true
+    },
+    {
+      "particle_id": 2,
+      "bbox": [
+        116,
+        118,
+        163,
+        181
+      ],
+      "bbox_normalized": [
+        0.3353,
+        0.3594,
+        0.113,
+        0.1514
+      ],
+      "size_mm": 0.1965,
+      "area_px2": 2961,
+      "shape": "foam",
+      "shape_confidence": 0.9256,
+      "detection_confidence": 0.8792,
+      "gt_shape": "foam",
+      "correct": true
+    },
+    {
+      "particle_id": 3,
+      "bbox": [
+        58,
+        207,
+        118,
+        272
+      ],
+      "bbox_normalized": [
+        0.2115,
+        0.5757,
+        0.1442,
+        0.1562
+      ],
+      "size_mm": 0.2211,
+      "area_px2": 3900,
+      "shape": "fragment",
+      "shape_confidence": 0.9384,
+      "detection_confidence": 0.8239,
+      "gt_shape": "fragment",
+      "correct": true
+    },
+    {
+      "particle_id": 4,
+      "bbox": [
+        277,
+        168,
+        332,
+        236
+      ],
+      "bbox_normalized": [
+        0.732,
+        0.4856,
+        0.1322,
+        0.1635
+      ],
+      "size_mm": 0.2186,
+      "area_px2": 3740,
+      "shape": "fragment",
+      "shape_confidence": 0.9769,
+      "detection_confidence": 0.8402,
+      "gt_shape": "fragment",
+      "correct": true
+    }
+  ],
+  "shape_distribution": {
+    "fragment": 2,
+    "fiber": 1,
+    "film": 0,
+    "bead": 0,
+    "foam": 1
+  },
+  "mean_size_mm": 0.2581,
+  "size_range_mm": [
+    0.1965,
+    0.3962
+  ],
+  "processing_time_ms": 181.01,
+  "classifier_accuracy_on_demo": 1.0,
+  "model_versions": {
+    "detector": "TinyYOLO-v1 (5 epochs on 200-sample synthetic subset)",
+    "classifier": "EfficientNet-B0-MPClassifier-v1 (10 epochs, 1500 samples, val_acc=0.95)"
+  },
+  "data_quality": "synthetic",
+  "pipeline_note": "Demo uses ground-truth bounding boxes + trained classifier. Production: TinyYOLO \u2192 NMS \u2192 MPClassifier. Field accuracy: 60-70% (camera only); ~85% with UV fluorescence (MP-Set dataset).",
+  "downstream": {
+    "m3_input": "particle counts, shape distributions, coordinates \u2192 M3 Graph GNN source attribution",
+    "m4_display": "shape_distribution + total_count \u2192 M4 Dashboard real-time display"
+  }
+}

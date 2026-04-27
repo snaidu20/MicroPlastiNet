@@ -1,0 +1,69 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Virtual env
+venv/
+env/
+.venv/
+.env
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs / runs
+*.log
+runs/
+tensorboard_logs/
+wandb/
+
+# Large training artifacts (kept out of git; see assets/ for results)
+data/raw/
+data/processed/edge_stream.jsonl
+data/processed/verified_stream.jsonl
+data/processed/rejected_stream.jsonl
+data/processed/m2b/
+data/processed/m3/
+data/processed/keystore.json
+src/m2a_vision/data/
+src/m3_graph_gnn/checkpoints/*.pt
+src/m3_graph_gnn/checkpoints/*.pkl
+src/m2a_vision/checkpoints/
+src/m2b_spectral/checkpoints/
+
+# But keep small training-results JSON
+!src/m3_graph_gnn/checkpoints/sample_attribution.json
+!src/m3_graph_gnn/checkpoints/training_results.json
+
+# Notebook checkpoints
+.ipynb_checkpoints/
+
+# Coverage
+.coverage
+htmlcov/
+.pytest_cache/

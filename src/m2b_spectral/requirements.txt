@@ -1,0 +1,21 @@
+# M2b Spectral DL Pipeline — Pinned Dependencies
+# Python 3.11+
+# Install: pip install -r requirements.txt
+
+# ── Deep Learning ─────────────────────────────────────────────────────────────
+torch>=2.1.0
+torchvision>=0.16.0   # optional, for future image-spectral fusion
+
+# ── Scientific Computing ───────────────────────────────────────────────────────
+numpy>=1.26.0
+scipy>=1.11.0         # used for signal processing utilities
+
+# ── Data / ML utilities ────────────────────────────────────────────────────────
+scikit-learn>=1.3.0   # stratified split, metrics, ROC curves
+
+# ── Visualization ──────────────────────────────────────────────────────────────
+matplotlib>=3.8.0
+
+# ── Utilities ─────────────────────────────────────────────────────────────────
+tqdm>=4.66.0          # progress bars (optional, not currently used)
+pandas>=2.1.0         # optional, for CSV inspection

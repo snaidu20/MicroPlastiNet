@@ -1,0 +1,52 @@
+# MicroPlastiNet — top-level requirements (union of all modules)
+# Each module also has its own requirements.txt for isolated installs.
+
+# Core
+numpy>=1.26
+pandas>=2.1
+scipy>=1.11
+scikit-learn>=1.3
+matplotlib>=3.8
+pyyaml>=6.0
+
+# Deep learning
+torch>=2.1
+torchvision>=0.16
+
+# Graph ML (M3)
+torch-geometric>=2.4
+networkx>=3.2
+captum>=0.7        # Integrated Gradients
+pyvis>=0.3.2       # interactive graph viz
+
+# Vision (M2a)
+Pillow>=10.0
+opencv-python>=4.8
+# ultralytics  # optional, for full YOLOv8
+
+# Time-series (M4 forecasts)
+statsmodels>=0.14
+
+# Dashboard (M4)
+dash>=2.14
+dash-bootstrap-components>=1.5
+plotly>=5.18
+
+# IoT / messaging (M1)
+paho-mqtt>=1.6
+
+# Security (M6)
+cryptography>=41.0
+
+# GenAI reports (M5)
+jinja2>=3.1
+pydantic>=2.4
+reportlab>=4.0
+# openai>=1.0  # optional, for live LLM mode
+
+# Geo (M3 / M4)
+geopandas>=0.14   # optional; falls back to pandas+shapely
+shapely>=2.0
+
+# Tests
+pytest>=7.4

@@ -1,0 +1,92 @@
+{
+  "concentration_prediction": {
+    "graphsage": {
+      "r2": 0.9603564143180847,
+      "mse": 0.06412985175848007,
+      "mae": 0.19334562122821808
+    },
+    "gat": {
+      "r2": 0.6982202529907227,
+      "mse": 0.48817703127861023,
+      "mae": 0.5328311920166016
+    },
+    "classical_baseline": {
+      "val_r2": 0.6797826408958003,
+      "test_r2": 0.682062302592845,
+      "test_mse": 0.5143151789780515,
+      "test_mae": 0.5800907602871436
+    }
+  },
+  "attribution_accuracy": {
+    "mean_spearman_r": -0.26857390870623793,
+    "top1_accuracy": 0.0,
+    "n_stations_evaluated": 20
+  },
+  "sample_attribution": {
+    "station": {
+      "id": 5,
+      "label": "station_005",
+      "lat": 32.387228,
+      "lon": -81.531029,
+      "river": "savannah"
+    },
+    "timestamp": "2023-07-15",
+    "method": "integrated_gradients",
+    "sources": [
+      {
+        "rank": 1,
+        "node_id": 106,
+        "node_type": "urban_runoff",
+        "label": "urban_runoff_026",
+        "lat": 32.327485,
+        "lon": -81.67375,
+        "attribution_probability": 0.358336
+      },
+      {
+        "rank": 2,
+        "node_id": 81,
+        "node_type": "urban_runoff",
+        "label": "urban_runoff_001",
+        "lat": 32.285734,
+        "lon": -81.657497,
+        "attribution_probability": 0.337717
+      },
+      {
+        "rank": 3,
+        "node_id": 101,
+        "node_type": "urban_runoff",
+        "label": "urban_runoff_021",
+        "lat": 32.3606,
+        "lon": -81.744086,
+        "attribution_probability": 0.147177
+      },
+      {
+        "rank": 4,
+        "node_id": 115,
+        "node_type": "agricultural_runoff",
+        "label": "agri_runoff_000",
+        "lat": 32.497624,
+        "lon": -81.568536,
+        "attribution_probability": 0.11507
+      },
+      {
+        "rank": 5,
+        "node_id": 91,
+        "node_type": "urban_runoff",
+        "label": "urban_runoff_011",
+        "lat": 32.470751,
+        "lon": -81.760802,
+        "attribution_probability": 0.041701
+      }
+    ]
+  },
+  "dataset_stats": {
+    "train_records": 14741,
+    "val_records": 4801,
+    "test_records": 2458,
+    "n_stations": 50,
+    "n_sources": 100,
+    "n_junctions": 50,
+    "n_edges": 500
+  }
+}
