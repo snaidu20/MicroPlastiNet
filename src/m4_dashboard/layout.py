@@ -446,7 +446,7 @@ def tab_reports():
                 [
                     html.Div(
                         [
-                            html.Div("GENERATE REGULATOR REPORT",
+                            html.Div("GENERATE COMPLIANCE REPORT (PROTOTYPE)",
                                      style={"fontSize": "10px", "color": COLORS["text_muted"],
                                             "letterSpacing": "0.1em", "marginBottom": "14px"}),
                             html.Div(
@@ -564,12 +564,34 @@ def tab_reports():
     )
 
 
+GLOBAL_DISCLOSURE_BANNER = html.Div(
+    [
+        html.Strong("⚠️ Honest disclosure: ", style={"color": "#78350f"}),
+        "Engineering prototype on ",
+        html.Strong("synthetic data only", style={"color": "#78350f"}),
+        ". No access to NOAA NCEI, Rochman SLoPP/FLOPP, Kaggle Microplastic CV, MP-Set, HydroSHEDS, or ERA5. "
+        "Stations, concentrations, polymer mixes, source attributions, forecasts, and alerts shown below are procedurally generated. "
+        "M3 source-attribution head currently FAILS on held-out evaluation (top-1 = 0.0, Spearman ρ = −0.27). "
+        "Not for operational monitoring or regulatory submission.",
+    ],
+    style={
+        "backgroundColor": "#fef3c7",
+        "borderBottom": "2px solid #d97706",
+        "color": "#78350f",
+        "padding": "10px 28px",
+        "fontSize": "12px",
+        "lineHeight": "1.55",
+    },
+)
+
+
 def make_layout(station_options: list) -> html.Div:
     """Build full app layout."""
     return html.Div(
         [
             dcc.Interval(id="clock-interval", interval=1000, n_intervals=0),
             dcc.Store(id="selected-station-store", data=station_options[0]["value"] if station_options else "STN-001"),
+            GLOBAL_DISCLOSURE_BANNER,
             header(),
             dcc.Tabs(
                 id="main-tabs",
