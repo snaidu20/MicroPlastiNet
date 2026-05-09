@@ -37,14 +37,14 @@ Microplastics are now found in every major river system on Earth, but the field 
 - **An IoT edge node** (simulated ESP32-CAM with turbidity, TDS, and 6-channel NIR sensors) that detects suspicious particles in real time and streams cryptographically-signed payloads to the cloud.
 - **Two deep-learning classifiers** — a CNN that counts and sizes particles from camera images, and a 1D-CNN that identifies the polymer type (PE, PET, PP, PS, PVC) from its spectral fingerprint.
 - **A Graph Neural Network** trained on a 200-node hydrological flow graph of the Ogeechee, Savannah, and Altamaha river systems. Once a station reports a concentration spike, Integrated Gradients on the GNN traces the signal back through the river network to rank the most likely upstream sources (factories, urban runoff, farms).
-- **A compliance dashboard and an LLM-powered report generator** that turn the raw inference into a regulator-ready PDF citing CWA § 1251, Georgia EPD protocols, and per-source attribution percentages.
+- **A compliance dashboard and an LLM-powered report generator** that turn the raw inference into a structured PDF (synthetic prototype) citing CWA § 1251, Georgia EPD protocols, and per-source attribution percentages.
 - **A cybersecurity layer** (HMAC-SHA256, replay protection, TLS 1.3, key rotation) because pollution-monitoring IoT is a high-value tampering target that the published literature largely ignores.
 
 The goal is to demonstrate the end-to-end *architecture* of a multi-modal, source-attributing pipeline. It is **not** a deployable system today — see the disclosure above for what is and isn't real, including the failure of the source-attribution claim on the synthetic evaluation set.
 
-> **[ View the live dashboard → ](https://microplastinet.pplx.app)**
+> **[ View the live dashboard → ](https://naidusai-microplastinet.hf.space)**
 
-[![MicroPlastiNet Dashboard](assets/dashboard_hero.png)](https://microplastinet.pplx.app)
+[![MicroPlastiNet Dashboard](assets/dashboard_hero.png)](https://naidusai-microplastinet.hf.space)
 
 ---
 
@@ -63,7 +63,7 @@ The goal is to demonstrate the end-to-end *architecture* of a multi-modal, sourc
 [ M4 — Compliance Dashboard  +  M5 — GenAI Regulator Reports ]
 ```
 
-A single sample of river water is sensed, identified, traced back to its likely upstream source, and converted into a regulator-ready report — in under 10 seconds.
+A single sample of river water is sensed, identified, traced back to its likely upstream source, and converted into a structured compliance report (synthetic prototype) — in under 10 seconds.
 
 ---
 
