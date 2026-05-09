@@ -64,7 +64,7 @@ alert threshold of 65 particles per liter and warrants immediate source investig
 
 The detection event was recorded at UTM coordinates consistent with the STN-007 deployment 
 site within the Altamaha River main channel. Polymer classification by the M2b 1D-CNN spectral 
-classifier — trained on the Rochman Lab SLoPP/SLoPP-E Raman spectral library (343 spectra) — 
+classifier — trained on the Rochman Lab SLoPP/SLoPP-E Raman spectral library (261 spectra) — 
 identified the following composition: polyethylene (PE) at 42.0% of total particle count 
 (classifier confidence 91%), polyethylene terephthalate (PET) at 28.0% (confidence 87%), and 
 polypropylene (PP) at 18.0% (confidence 84%). The prevalence of PE and PET at high confidence 

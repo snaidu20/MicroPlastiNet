@@ -58,7 +58,7 @@ data/synthetic/
 
 | Dataset | Use | URL |
 |---|---|---|
-| **Kaggle Microplastic CV** | YOLOv8 detection training | [Kaggle — mathieuduverne](https://www.kaggle.com/code/mathieuduverne/microplastic-detection-yolov8-map-50-76-2) |
+| **Kaggle Microplastic CV** | YOLOv8 detection training | [Kaggle — Microplastic CV Dataset](https://www.kaggle.com/datasets/imtkaggleteam/microplastic-dataset-for-computer-vision) |
 | **MP-Set Fluorescence** | UV fluorescence classification | [Kaggle — sanghyeonaustinpark](https://www.kaggle.com/datasets/sanghyeonaustinpark/mpset) |
 
 To use real data:
@@ -314,7 +314,7 @@ The `total_count`, `shape_distribution`, and `mean_size_mm` fields from the infe
 - Bochkovskiy et al. (2020). *YOLOv4: Optimal Speed and Accuracy of Object Detection.* arXiv:2004.10934
 - GESAMP (2015). *Sources, fate and effects of microplastics in the marine environment.* IMO/FAO/UNESCO-IOC/UNIDO/WMO/IAEA/UN/UNEP/UNDP Joint Group of Experts on the Scientific Aspects of Marine Environmental Protection.
 - Rocha-Santos & Duarte (2015). *A critical overview of the analytical approaches to the occurrence, the fate and the behavior of microplastics in the environment.* TrAC 65, 47–53.
-- Kaggle Microplastic CV Dataset: https://www.kaggle.com/code/mathieuduverne/microplastic-detection-yolov8-map-50-76-2
+- Kaggle Microplastic CV Dataset: https://www.kaggle.com/datasets/imtkaggleteam/microplastic-dataset-for-computer-vision
 - MP-Set Fluorescence Dataset: https://www.kaggle.com/datasets/sanghyeonaustinpark/mpset
 
 ---

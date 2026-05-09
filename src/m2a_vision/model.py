@@ -25,7 +25,7 @@ PRODUCTION UPGRADE PATH
   model.train(data="data/synthetic/dataset.yaml", epochs=50, imgsz=416)
 
   # Real training data:
-  # Kaggle MP CV: https://www.kaggle.com/code/mathieuduverne/microplastic-detection-yolov8-map-50-76-2
+  # Kaggle MP CV: https://www.kaggle.com/datasets/imtkaggleteam/microplastic-dataset-for-computer-vision
   # MP-Set: https://www.kaggle.com/datasets/sanghyeonaustinpark/mpset
 """
 

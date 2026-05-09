@@ -251,7 +251,7 @@ result = attribute_source(node_id=5, time="2023-07-15", top_k=5)
 
 7. **Microplastic distributions:** Koelmans, A. A. et al. (2019). Microplastics in freshwaters and drinking water: Critical review and assessment of data quality. *Water Research, 155,* 410–422. https://doi.org/10.1016/j.watres.2019.02.054
 
-8. **ERA5 wind data:** Hersbach, H. et al. (2020). The ERA5 global reanalysis. *Quarterly Journal of the Royal Meteorological Society, 146*(730), 1999–2049. https://www.ecmwf.int/
+8. **ERA5 wind data:** Hersbach, H. et al. (2020). The ERA5 global reanalysis. *Quarterly Journal of the Royal Meteorological Society, 146*(730), 1999–2049. https://cds.climate.copernicus.eu/datasets/reanalysis-era5-single-levels
 
 ---
 

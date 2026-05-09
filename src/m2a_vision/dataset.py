@@ -12,7 +12,7 @@ pipeline.
 
 REAL DATASETS (use these when available — drop-in replacements):
   - Kaggle Microplastic CV Dataset:
-      https://www.kaggle.com/code/mathieuduverne/microplastic-detection-yolov8-map-50-76-2
+      https://www.kaggle.com/datasets/imtkaggleteam/microplastic-dataset-for-computer-vision
       Format: YOLO annotation format (class x_center y_center w h, normalized)
   - MP-Set Fluorescence Dataset:
       https://www.kaggle.com/datasets/sanghyeonaustinpark/mpset
@@ -399,7 +399,7 @@ def generate_dataset(
         "name": "MicroPlastiNet-Synthetic",
         "note": "SYNTHETIC DATA — replace with real Kaggle/MP-Set data for production",
         "real_datasets": {
-            "Kaggle Microplastic CV": "https://www.kaggle.com/code/mathieuduverne/microplastic-detection-yolov8-map-50-76-2",
+            "Kaggle Microplastic CV": "https://www.kaggle.com/datasets/imtkaggleteam/microplastic-dataset-for-computer-vision",
             "MP-Set Fluorescence": "https://www.kaggle.com/datasets/sanghyeonaustinpark/mpset",
         },
         "n_train": n_train,

@@ -19,7 +19,7 @@ Multi-modal IoT + Deep Learning + Graph ML pipeline for microplastic detection, 
 
 ### M2b — Spectral DL Classifier
 - 1D-CNN on FTIR + Raman spectra
-- Trained on: Rochman Lab SLoPP/SLoPP-E (Raman 343 spectra), FLOPP/FLOPP-e (FTIR 381 spectra)
+- Trained on: Rochman Lab SLoPP/SLoPP-E (Raman 261 spectra), FLOPP/FLOPP-e (FTIR 381 spectra)
 - 6-class polymer classification: PE, PET, PP, PS, PVC, Other
 - Output: polymer probabilities + confidence
 
@@ -54,10 +54,10 @@ Multi-modal IoT + Deep Learning + Graph ML pipeline for microplastic detection, 
 | NOAA NCEI Marine Microplastics DB | M3 ground truth (~22k records) | https://www.ncei.noaa.gov/products/microplastics |
 | Rochman SLoPP/SLoPP-E (Raman) | M2b training | https://rochmanlab.wordpress.com/spectral-libraries-for-microplastics-research/ |
 | Rochman FLOPP/FLOPP-e (FTIR) | M2b training | https://rochmanlab.wordpress.com/spectral-libraries-for-microplastics-research/ |
-| Kaggle Microplastic CV | M2a vision | https://www.kaggle.com/code/mathieuduverne/microplastic-detection-yolov8-map-50-76-2 |
+| Kaggle Microplastic CV | M2a vision | https://www.kaggle.com/datasets/imtkaggleteam/microplastic-dataset-for-computer-vision |
 | MP-Set fluorescence | M2a vision | https://www.kaggle.com/datasets/sanghyeonaustinpark/mpset |
 | HydroSHEDS river network | M3 graph topology | https://www.hydrosheds.org/ |
-| ERA5 wind/weather | M3 covariates | https://www.ecmwf.int/ |
+| ERA5 wind/weather | M3 covariates | https://cds.climate.copernicus.eu/datasets/reanalysis-era5-single-levels |
 
 ## Tech Stack
 - Python 3.11

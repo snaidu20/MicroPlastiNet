@@ -45,7 +45,7 @@ Source attribution analysis, performed using a Graph Attention Network (GAT) tra
 
 ## DETECTION DETAILS
 
-The detection event was recorded at the {{ station_id }} monitoring buoy ({{ lat }}, {{ lon }}) during the normal 6-hour sampling cycle. Particle enumeration was performed using the M2a YOLOv8-based computer vision pipeline (EfficientNet-B0 backbone), with polymer identity confirmed by the M2b one-dimensional convolutional neural network (1D-CNN) spectral classifier, trained on the Rochman Lab SLoPP/SLoPP-E Raman spectral library (343 reference spectra) and FLOPP/FLOPP-e FTIR library (381 spectra).
+The detection event was recorded at the {{ station_id }} monitoring buoy ({{ lat }}, {{ lon }}) during the normal 6-hour sampling cycle. Particle enumeration was performed using the M2a YOLOv8-based computer vision pipeline (EfficientNet-B0 backbone), with polymer identity confirmed by the M2b one-dimensional convolutional neural network (1D-CNN) spectral classifier, trained on the Rochman Lab SLoPP/SLoPP-E Raman spectral library (261 reference spectra) and FLOPP/FLOPP-e FTIR library (381 spectra).
 
 **Polymer Composition by Fraction:**
 
@@ -85,12 +85,12 @@ Should confirmed field measurements exceed the NOAA-recommended action threshold
 - NOAA NCEI Marine Microplastics Database: https://www.ncei.noaa.gov/products/microplastics
 - Rochman Lab Spectral Libraries (SLoPP/SLoPP-E, FLOPP/FLOPP-e): https://rochmanlab.wordpress.com/spectral-libraries-for-microplastics-research/
 - HydroSHEDS Hydrological Data: https://www.hydrosheds.org/
-- ERA5 Atmospheric Reanalysis (ECMWF): https://www.ecmwf.int/
+- ERA5 Atmospheric Reanalysis (ECMWF): https://cds.climate.copernicus.eu/datasets/reanalysis-era5-single-levels
 - EPA 40 CFR Part 131 — Water Quality Standards
 - Clean Water Act, 33 U.S.C. § 1251 et seq.
 - Georgia EPD Water Protection Program: https://epd.georgia.gov/water
 - NOAA Marine Debris Program Monitoring Protocol (2024)
-- Kaggle Microplastic CV Dataset: https://www.kaggle.com/code/mathieuduverne/microplastic-detection-yolov8-map-50-76-2
+- Kaggle Microplastic CV Dataset: https://www.kaggle.com/datasets/imtkaggleteam/microplastic-dataset-for-computer-vision
 
 ---
 """

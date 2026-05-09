@@ -11,7 +11,7 @@ Module M2b classifies microplastic polymer type (PE, PET, PP, PS, PVC, Other)
 from FTIR or Raman spectroscopic measurements using a 1D Convolutional Neural Network.
 
 The architecture is designed to operate on Rochman Lab spectral libraries:
-- **SLoPP / SLoPP-E** — 343 Raman spectra (Munno et al., 2020)
+- **SLoPP / SLoPP-E** — 261 Raman spectra (Munno et al., 2020)
 - **FLOPP / FLOPP-e** — 381 FTIR spectra (Rochman et al., 2022)
 
 > **Note — Synthetic Data:** The Rochman datasets require institutional access

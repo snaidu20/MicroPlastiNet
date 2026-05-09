@@ -277,12 +277,12 @@ python -m src.m5_genai.report_generator --station STN-003 --out report.pdf
 | Dataset | Used by | URL |
 |---|---|---|
 | NOAA NCEI Marine Microplastics DB (~22 k records) | M3 ground truth | https://www.ncei.noaa.gov/products/microplastics |
-| Rochman Lab SLoPP / SLoPP-E (Raman, 343 spectra) | M2b training | https://rochmanlab.wordpress.com/spectral-libraries-for-microplastics-research/ |
+| Rochman Lab SLoPP / SLoPP-E (Raman, 261 spectra) | M2b training | https://rochmanlab.wordpress.com/spectral-libraries-for-microplastics-research/ |
 | Rochman Lab FLOPP / FLOPP-e (FTIR, 381 spectra) | M2b training | https://rochmanlab.wordpress.com/spectral-libraries-for-microplastics-research/ |
-| Kaggle Microplastic CV Dataset (YOLO) | M2a vision | https://www.kaggle.com/code/mathieuduverne/microplastic-detection-yolov8-map-50-76-2 |
+| Kaggle Microplastic CV Dataset (YOLO) | M2a vision | https://www.kaggle.com/datasets/imtkaggleteam/microplastic-dataset-for-computer-vision |
 | MP-Set fluorescence microscopy | M2a vision | https://www.kaggle.com/datasets/sanghyeonaustinpark/mpset |
 | HydroSHEDS river network | M3 graph topology | https://www.hydrosheds.org/ |
-| ERA5 wind / weather reanalysis | M3 covariates | https://www.ecmwf.int/ |
+| ERA5 wind / weather reanalysis | M3 covariates | https://cds.climate.copernicus.eu/datasets/reanalysis-era5-single-levels |
 
 > The repo ships with **physics-informed synthetic data** for every module so the pipeline runs end-to-end on any laptop. Drop the real CSVs / TIFFs into `data/raw/` and every loader picks them up automatically.
 
@@ -340,7 +340,7 @@ This project is engineered to be a serious research artifact — that means we t
 - NOAA NCEI Marine Microplastics Database. *Scientific Data*, 2023. https://www.nature.com/articles/s41597-023-02632-y · https://www.ncei.noaa.gov/products/microplastics
 - Rochman, C. — *SLoPP / FLOPP spectral libraries for microplastics research.* Rochman Lab. https://rochmanlab.wordpress.com/spectral-libraries-for-microplastics-research/
 - HydroSHEDS — Hydrological data and maps based on shuttle elevation derivatives at multiple scales. https://www.hydrosheds.org/
-- ECMWF ERA5 reanalysis (wind / weather covariates). https://www.ecmwf.int/
+- ECMWF ERA5 reanalysis (wind / weather covariates). https://cds.climate.copernicus.eu/datasets/reanalysis-era5-single-levels
 
 ---
 
