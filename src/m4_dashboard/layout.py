@@ -569,10 +569,10 @@ GLOBAL_DISCLOSURE_BANNER = html.Div(
         html.Strong("⚠️ Honest disclosure: ", style={"color": "#78350f"}),
         "Engineering prototype on ",
         html.Strong("synthetic data only", style={"color": "#78350f"}),
-        ". No access to NOAA NCEI, Rochman SLoPP/FLOPP, Kaggle Microplastic CV, MP-Set, HydroSHEDS, or ERA5. "
+        ". No access to NOAA NCEI, Rochman SLoPP/FLOPP, Kaggle Microplastic CV, MP-Set, HydroSHEDS, or ERA5 — these sources sit behind credentialed APIs, lab-internal sharing, or institutional Copernicus/commercial licenses that I don't meet as a pre-PhD applicant without institutional backing. "
         "Stations, concentrations, polymer mixes, source attributions, forecasts, and alerts shown below are procedurally generated. "
         "M3 source-attribution head currently FAILS on held-out evaluation (top-1 = 0.0, Spearman ρ = −0.27). "
-        "Not for operational monitoring or regulatory submission.",
+        "Loaders pick up real files from data/raw/ once institutional access is granted. Not for operational monitoring or regulatory submission.",
     ],
     style={
         "backgroundColor": "#fef3c7",
