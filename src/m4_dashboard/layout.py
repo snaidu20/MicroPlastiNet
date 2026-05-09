@@ -139,7 +139,7 @@ def header():
                         [
                             html.Div(
                                 children=[
-                                    html.Span("DEMO DATASET",
+                                    html.Span("SYNTHETIC DATA · PROTOTYPE",
                                               style={"fontSize": "10px",
                                                      "color": COLORS["accent"],
                                                      "letterSpacing": "0.1em",
@@ -313,6 +313,21 @@ def tab_source_attribution():
         style=TAB_STYLE,
         selected_style=TAB_SELECTED_STYLE,
         children=[
+            html.Div(
+                html.Div(
+                    [
+                        html.Strong("⚠️ Honest disclosure: ", style={"color": "#78350f"}),
+                        "M3 source-attribution head currently FAILS on held-out evaluation "
+                        "(top-1 accuracy = 0.0, mean Spearman ρ = −0.27 — see assets/m3_eval_report.json). "
+                        "The probability bars and flow map below visualize the model's outputs but do not yet recover true upstream sources. "
+                        "Source attribution remains an open research problem and is the primary motivation for pursuing this work with real datasets.",
+                    ],
+                    style={"backgroundColor": "#fef3c7", "border": "1px solid #d97706",
+                           "color": "#78350f", "padding": "10px 14px", "borderRadius": "4px",
+                           "fontSize": "12px", "lineHeight": "1.55"},
+                ),
+                style={"padding": "14px 16px 0"},
+            ),
             html.Div(
                 [
                     html.Div(
@@ -505,7 +520,7 @@ def tab_reports():
                             html.Div(
                                 id="report-display",
                                 children=html.Div(
-                                    "Select a station and click Generate Report to produce a regulator-ready document.",
+                                    "Select a station and click Generate Report to produce a structured compliance document. Note: synthetic-data prototype — not for actual regulatory submission.",
                                     style={"color": COLORS["text_muted"], "fontSize": "13px",
                                            "padding": "40px", "textAlign": "center"}
                                 ),
