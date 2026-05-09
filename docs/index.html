@@ -4,7 +4,7 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>MicroPlastiNet — Microplastic Source Attribution for Watershed Agencies</title>
-<meta name="description" content="A multi-modal IoT + Deep Learning + Graph Neural Network research prototype for microplastic detection, polymer identification, and upstream source attribution.">
+<meta name="description" content="Engineering prototype: a multi-modal IoT + Deep Learning + Graph Neural Network scaffold for microplastic detection, polymer identification, and upstream source attribution. Synthetic data only — not validated on real-world data.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -440,11 +440,19 @@
 
 <main id="top">
 
+<!-- ─── HONEST DISCLOSURE BANNER ─── -->
+<div style="background:#fef3c7; border-bottom:2px solid #d97706; color:#78350f; padding:14px 32px;">
+  <div style="max-width:1240px; margin:0 auto; font-size:14px; line-height:1.55;">
+    <strong style="color:#78350f;">⚠️ Honest disclosure — engineering prototype, synthetic data only.</strong>
+    All results on this page were produced on procedurally generated, physics-informed synthetic data. The author does not currently have access to real datasets (NOAA NCEI marine microplastics, Rochman SLoPP/FLOPP spectra, Kaggle Microplastic CV, MP-Set, HydroSHEDS, ERA5). Headline numbers (94% vision, 100% spectral, 0.960 R²) are synthetic-on-synthetic and inflated by definition. The M3 source-attribution head <strong>fails</strong> on held-out evaluation (top-1 accuracy = 0.0, Spearman ρ = −0.27) — see the M3 section below. Treat this site as a methodology demo and a deployable engineering scaffold, not a validated scientific result.
+  </div>
+</div>
+
 <!-- ─── HERO ─── -->
 <section class="hero">
-  <div class="eyebrow"><span class="dot"></span> Research prototype · Ongoing research</div>
-  <h2>From river water to <em>regulator-ready report</em><br>in under ten seconds.</h2>
-  <p class="lead">A multi-modal pipeline that detects microplastics, identifies the polymer, and traces contamination back to its most likely upstream source — engineered for environmental compliance teams who need defensible, auditable attribution.</p>
+  <div class="eyebrow"><span class="dot"></span> Engineering prototype · Synthetic data · Ongoing research</div>
+  <h2>A multi-modal scaffold for <em>microplastic source attribution</em><br>— end-to-end on synthetic data.</h2>
+  <p class="lead">A multi-modal pipeline that demonstrates how microplastic detection, polymer identification, graph-based source attribution, and a hardened IoT integrity layer could be wired together for environmental compliance teams. All numbers below are produced on synthetic data; the design and software architecture are real, the validation is not.</p>
 
   <div class="cta-row">
     <a class="btn primary" href="https://microplastinet.pplx.app" target="_blank" rel="noopener">Launch interactive dashboard ↗</a>
@@ -459,6 +467,7 @@
     <span class="chip">Plotly Dash</span>
     <span class="chip">11 K LOC</span>
     <span class="chip ok">6 / 6 security tests passing</span>
+    <span class="chip" style="background:#fef3c7; color:#78350f; border-color:#d97706;">Synthetic data only</span>
   </div>
 
   <div class="author-line">
@@ -471,29 +480,29 @@
 <!-- ─── KPI STRIP ─── -->
 <div class="kpi-strip">
   <div class="kpi">
-    <div class="label">GraphSAGE Test R²</div>
+    <div class="label">GraphSAGE Test R² <span style="color:#d97706">(synthetic)</span></div>
     <div class="value accent">0.960</div>
-    <div class="delta">+40.8% vs classical baseline</div>
+    <div class="delta">Synthetic-on-synthetic · not validated on real data</div>
   </div>
   <div class="kpi">
-    <div class="label">Spectral CNN Accuracy</div>
+    <div class="label">Spectral CNN Accuracy <span style="color:#d97706">(synthetic)</span></div>
     <div class="value accent">100%</div>
-    <div class="delta">Macro AUC 1.000 · 5 polymers</div>
+    <div class="delta">5-polymer synthetic FTIR/Raman set · inflated by construction</div>
   </div>
   <div class="kpi">
-    <div class="label">Vision Macro F1</div>
+    <div class="label">Vision Macro F1 <span style="color:#d97706">(synthetic)</span></div>
     <div class="value accent">0.94</div>
-    <div class="delta">5-class shape classifier</div>
+    <div class="delta">2 K synthetic microscopy images · not Kaggle/MP-Set</div>
   </div>
   <div class="kpi">
-    <div class="label">Flow-graph Nodes</div>
-    <div class="value">200</div>
-    <div class="delta">Stations · sources · junctions</div>
+    <div class="label">M3 Source-Attribution top-1</div>
+    <div class="value" style="color:#dc2626">0.0</div>
+    <div class="delta">Honest failure · Spearman ρ = −0.27</div>
   </div>
   <div class="kpi">
-    <div class="label">NOAA Pattern Records</div>
-    <div class="value">22 K</div>
-    <div class="delta">Marine microplastic database</div>
+    <div class="label">M6 Adversarial Tests</div>
+    <div class="value" style="color:#16a34a">6 / 6</div>
+    <div class="delta">Genuinely real · HMAC + replay + key rotation</div>
   </div>
 </div>
 
@@ -514,8 +523,8 @@
       </div>
       <div class="usecase">
         <div class="icon">03</div>
-        <h4>Generate defensible, auditable reports</h4>
-        <p>One-click regulator-ready output cites CWA § 1251, EPA 40 CFR Part 131, and the underlying NOAA / Rochman / HydroSHEDS evidence chain.</p>
+        <h4>Generate structured compliance reports</h4>
+        <p>One-click PDF + Markdown output wired to CWA § 1251 and EPA 40 CFR Part 131 templates. The report-generation plumbing is real; the underlying evidence is synthetic in this prototype.</p>
       </div>
       <div class="usecase">
         <div class="icon">04</div>
@@ -561,7 +570,7 @@
   <div class="results-grid">
     <div class="result-card"><div class="model-name">SpectralCNN</div><div class="num">100%</div><div class="desc">Test accuracy · Macro AUC 1.000</div></div>
     <div class="result-card"><div class="model-name">MLP baseline</div><div class="num">99.3%</div><div class="desc">Test accuracy</div></div>
-    <div class="result-card"><div class="model-name">Parameters</div><div class="num">471 K</div><div class="desc">Compact, deployable</div></div>
+    <div class="result-card"><div class="model-name">Parameters</div><div class="num">471 K</div><div class="desc">Compact 1D-CNN · synthetic spectra only</div></div>
   </div>
 </section>
 
@@ -571,8 +580,9 @@
     <span class="module-tag">M3</span>
     <h3>Graph neural network — source attribution</h3>
   </div>
-  <p>The research-novelty heart. A 200-node directed flow graph spanning the Ogeechee, Savannah, and Altamaha watersheds. GraphSAGE for prediction, GAT for attention-based interpretability, classical baseline for honest comparison, and Integrated Gradients for source attribution.</p>
+  <p>A 200-node directed flow graph spanning the Ogeechee, Savannah, and Altamaha watersheds. GraphSAGE predicts station-level concentration, GAT provides attention-based interpretability, and a classical centrality + Ridge baseline gives an honest comparison. The graph topology is synthetic (HydroSHEDS not available); edges and flow weights are procedurally generated to be physically plausible.</p>
   <img class="module-image" src="m3_results.png" alt="M3 graph-network results">
+  <h4 style="margin:24px 0 8px; font-size:15px; color:var(--text-2);">Concentration prediction — synthetic-on-synthetic</h4>
   <table class="data">
     <thead>
       <tr><th>Model</th><th>Test R²</th><th>MSE</th><th>MAE</th></tr>
@@ -583,7 +593,19 @@
       <tr><td>Classical (centrality + Ridge)</td><td class="num">0.682</td><td class="num">0.514</td><td class="num">0.580</td></tr>
     </tbody>
   </table>
-  <div class="gain-callout">+40.8% relative R² gain of GraphSAGE over the classical graph-mining baseline</div>
+  <div class="gain-callout" style="background:#fef3c7; color:#78350f; border-left:4px solid #d97706;">+40.8% relative R² gain of GraphSAGE over the classical baseline — but on synthetic data the model is essentially memorizing the generator.</div>
+
+  <h4 style="margin:32px 0 8px; font-size:15px; color:var(--text-2);">Source attribution — honest failure</h4>
+  <table class="data">
+    <thead>
+      <tr><th>Metric</th><th style="text-align:right">Value</th><th style="text-align:right">Reading</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Top-1 accuracy (predicted source matches true source)</td><td class="num" style="color:#dc2626">0.000</td><td style="text-align:right; color:#dc2626">FAIL</td></tr>
+      <tr><td>Mean Spearman ρ (ranked attribution vs ground truth)</td><td class="num" style="color:#dc2626">−0.269</td><td style="text-align:right; color:#dc2626">FAIL</td></tr>
+    </tbody>
+  </table>
+  <p style="margin-top:10px; color:var(--text-2); font-size:14px;">Source: <code>assets/m3_eval_report.json</code>. The Integrated-Gradients head does not currently recover upstream sources — the attribution component is a known open problem and a primary motivation for pursuing this work in a PhD context with real data.</p>
   <div class="cta-row">
     <a class="btn primary" href="m3_graph.html">Open interactive 200-node graph →</a>
   </div>
@@ -669,8 +691,8 @@
 <footer class="site">
   <div class="footer-inner">
     <div>
-      <strong>MicroPlastiNet</strong> · Multi-modal IoT + Deep Learning + GNN pipeline for microplastic monitoring<br>
-      <span style="font-size:12px">Research prototype by Saikumar Reddy Naidu · CS Graduate, Florida Atlantic University · Ongoing research</span>
+      <strong>MicroPlastiNet</strong> · Multi-modal IoT + Deep Learning + GNN scaffold for microplastic monitoring<br>
+      <span style="font-size:12px">Engineering prototype by Saikumar Reddy Naidu · CS Graduate, Florida Atlantic University · Synthetic data only · Ongoing research</span>
     </div>
     <div class="links">
       <a href="https://github.com/snaidu20/MicroPlastiNet" target="_blank" rel="noopener">GitHub</a>
