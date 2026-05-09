@@ -10,13 +10,29 @@
 [![Tests](https://img.shields.io/badge/security_tests-6%2F6_passing-brightgreen)]()
 
 **Author:** Saikumar Reddy Naidu — CS Graduate, Florida Atlantic University
-**Status:** Research prototype — ongoing research
+**Status:** Engineering prototype — ongoing research
+
+---
+
+## ⚠️ Honest disclosure (read this first)
+
+This is an **engineering prototype**, not a deployed environmental-monitoring system. Before reading the rest of the README, please understand exactly what is and isn't real here:
+
+1. **All training and evaluation data are synthetic.** Every module — vision (M2a), spectral (M2b), graph GNN (M3), IoT edge (M1) — runs on procedurally generated, physics-informed synthetic data, not real microplastic measurements. **No real microplastic was ever detected, classified, or attributed in this pipeline.**
+2. **Why synthetic data?** I do not currently have access to the real datasets the pipeline is designed for: NOAA NCEI Marine Microplastics records, Rochman Lab SLoPP/SLoPP-E and FLOPP/FLOPP-e spectra, the Kaggle Microplastic CV / MP-Set images, HydroSHEDS river topology, and ERA5 reanalysis. The repository is built so each loader picks up the corresponding real CSVs/TIFFs from `data/raw/` once they are obtained, but until then, all reported numbers reflect synthetic-only performance.
+3. **The headline numbers are inflated by synthetic data.** 94% vision accuracy, 100% spectral accuracy, and R² = 0.96 on concentration regression are training-on-synthetic-distribution-and-testing-on-the-same-distribution numbers. They do **not** generalize to real field data. The README explicitly notes (line 88) that real-world camera accuracy will likely drop to ~60–70%.
+4. **The core source-attribution claim does not work.** On the M3 GNN attribution evaluation (`assets/m3_eval_report.json`), Integrated Gradients achieves `top1_accuracy = 0.0` and `mean_spearman_r = -0.27` across 20 evaluated stations — i.e. the attribution is **negatively correlated with the ground truth on this synthetic graph**. The single "sample attribution at Station 5" shown below is a cherry-picked example, not representative of the method's actual performance.
+5. **What is real:** the cybersecurity layer (M6 — HMAC-SHA256, replay protection, key rotation) ships with 6/6 adversarial unit tests that genuinely pass, and the systems engineering of the multi-modal pipeline itself.
+
+This project is therefore best read as a **multi-modal pipeline architecture demonstration** — the integration of IoT, vision DL, spectral DL, graph ML, dashboard, GenAI reporting, and cryptographic security in one repository — not as evidence of working microplastic forensics. With access to the real datasets above, the same code paths could be evaluated honestly on real measurements; that is future work.
+
+---
 
 ## About this project
 
 Microplastics are now found in every major river system on Earth, but the field still relies almost entirely on slow, expensive lab-based workflows: collect a water sample, ship it to a lab, count particles under a microscope, and run FTIR/Raman to identify the polymer. By the time a result is published, the pollution event is weeks old and the source is gone.
 
-**MicroPlastiNet is an end-to-end research prototype that closes that loop in under 10 seconds.** It combines six tightly-integrated modules:
+**MicroPlastiNet is an end-to-end engineering prototype that demonstrates how such a loop *could* be closed in under 10 seconds, end-to-end on synthetic data.** It combines six tightly-integrated modules:
 
 - **An IoT edge node** (simulated ESP32-CAM with turbidity, TDS, and 6-channel NIR sensors) that detects suspicious particles in real time and streams cryptographically-signed payloads to the cloud.
 - **Two deep-learning classifiers** — a CNN that counts and sizes particles from camera images, and a 1D-CNN that identifies the polymer type (PE, PET, PP, PS, PVC) from its spectral fingerprint.
@@ -24,7 +40,7 @@ Microplastics are now found in every major river system on Earth, but the field 
 - **A compliance dashboard and an LLM-powered report generator** that turn the raw inference into a regulator-ready PDF citing CWA § 1251, Georgia EPD protocols, and per-source attribution percentages.
 - **A cybersecurity layer** (HMAC-SHA256, replay protection, TLS 1.3, key rotation) because pollution-monitoring IoT is a high-value tampering target that the published literature largely ignores.
 
-The goal is not just "another microplastics classifier" — it's a complete, defensible, source-attribution pipeline that an environmental agency could realistically deploy on a real river.
+The goal is to demonstrate the end-to-end *architecture* of a multi-modal, source-attributing pipeline. It is **not** a deployable system today — see the disclosure above for what is and isn't real, including the failure of the source-attribution claim on the synthetic evaluation set.
 
 > **[ View the live dashboard → ](https://microplastinet.pplx.app)**
 
@@ -109,7 +125,7 @@ Drop-in compatible with the [Rochman Lab SLoPP/SLoPP-E (Raman)](https://rochmanl
 
 ---
 
-### M3 — Graph Neural Network · Source Attribution (the research-novelty heart)
+### M3 — Graph Neural Network · Source Attribution
 
 A 200-node directed flow graph spanning the Ogeechee / Savannah / Altamaha watersheds:
 
@@ -126,9 +142,18 @@ A 200-node directed flow graph spanning the Ogeechee / Savannah / Altamaha water
 | GAT | 0.698 | 0.488 | 0.533 |
 | Classical (centrality + Ridge) | 0.682 | 0.514 | 0.580 |
 
-> **+40.8% relative R² gain** of GraphSAGE over the classical graph-mining baseline.
+> **+40.8% relative R² gain** of GraphSAGE over the classical graph-mining baseline on **synthetic** concentration regression. This is a within-distribution synthetic-vs-synthetic comparison and does not reflect real-world performance.
 
-**Sample attribution** for an observed spike at Station 5 (Savannah River, 2023-07-15):
+#### ⚠️ Source-attribution evaluation result
+
+| Metric | Value | Interpretation |
+|---|---|---|
+| `top1_accuracy` (20 stations) | **0.0** | Integrated Gradients picks the correct top-1 source on **zero** stations |
+| `mean_spearman_r` (20 stations) | **−0.27** | Attribution ranking is **negatively correlated** with the synthetic ground truth |
+
+In other words, on the synthetic flow graph, Integrated Gradients on the trained GraphSAGE does **not** recover the true sources — the example below is a single illustrative output, not representative of the method's actual accuracy. Whether this fails because of the IG method, the synthetic graph design, or the regression task is open future work; we report the negative result honestly rather than hide it.
+
+**Sample attribution** (illustrative only) for an observed spike at Station 5 (Savannah River, 2023-07-15):
 
 | Rank | Source node | Type | Probability |
 |---|---|---|---|
@@ -282,25 +307,31 @@ MicroPlastiNet/
 
 This project is engineered to be a serious research artifact — that means we tell the truth about what works and what doesn't.
 
-1. **Field-grade vs lab-grade accuracy** are reported separately. Camera-only ≈ 60–70 %; +UV ≈ 85 %; +FTIR ≈ 95 %.
-2. **Synthetic vs real data** is labeled in every module. Real datasets slot in via a single `data/raw/` directory.
-3. **Confidence intervals**, not point estimates, on every prediction.
-4. **Classical-baseline comparison** for the GNN to demonstrate the modern approach is genuinely better.
-5. **Failure-mode docs** in every module README.
+1. **All current data is synthetic.** Real-world datasets (NOAA NCEI, Rochman SLoPP/FLOPP, Kaggle MP-Set, HydroSHEDS, ERA5) are not yet integrated because I do not have access to them at this time. Every reported metric is therefore a synthetic-on-synthetic measurement, not a real-world one. See the top-of-README disclosure for full detail.
+2. **Synthetic vs real data is labeled in every module.** Real datasets slot in via a single `data/raw/` directory once obtained.
+3. **Field-grade vs lab-grade accuracy are reported separately** (e.g. README line 88: synthetic camera ≈ 94%, real-world camera ≈ 60–70%, +UV ≈ 85%, +FTIR ≈ 95%). Synthetic numbers are not extrapolated to real-world claims.
+4. **Negative results are reported, not hidden.** The M3 GNN source-attribution evaluation — the project's main research-style claim — produces `top1_accuracy = 0.0` and `mean_spearman_r = −0.27` on 20 synthetic stations. We report this prominently in M3 above rather than burying it.
+5. **Classical-baseline comparison** for the GNN regression task (Ridge + centrality) is included to contextualize the GraphSAGE R² number on the same synthetic data.
+6. **Failure-mode docs** in every module README.
+7. **What is genuinely real:** the M6 cybersecurity layer ships with 6/6 adversarial unit tests that actually exercise HMAC tampering, replay, stale timestamps, wrong-key, and key-rotation paths.
 
 ---
 
 ## Citations
 
-- NOAA NCEI Marine Microplastics Database. *Scientific Data*, 2023. [DOI](https://www.nature.com/articles/s41597-023-02632-y)
-- Sundararajan, M. *et al.* — Axiomatic Attribution for Deep Networks (Integrated Gradients). ICML 2017.
-- Hamilton, W. *et al.* — Inductive Representation Learning on Large Graphs (GraphSAGE). NeurIPS 2017.
-- Veličković, P. *et al.* — Graph Attention Networks (GAT). ICLR 2018.
-- Sun, C. *et al.* — Lagrangian particle-tracking modeling of microplastic transport. *Frontiers in Toxicology*, 2025.
-- Rochman, C. — SLoPP / FLOPP spectral libraries for microplastics research. Rochman Lab.
-- Ramasamy, V., & Dorai, G. — *GraphDPR: A Privacy Policy Analysis Framework Using Knowledge Graphs and Topic Modeling.* ASONAM 2025, pp. 422–430. Methodological precedent for graph-based knowledge extraction and attribution from observed evidence (informs M3 design). [DBLP](https://dblp.org/pid/223/3218.html)
-- Shovon, M. I., Nandagopal, N., Vijayalakshmi, R., Du, J. T., & Cocks, B. — *Directed Connectivity Analysis of Functional Brain Networks during Cognitive Activity Using Transfer Entropy.* Neural Processing Letters, 2017. Effective-connectivity / transfer-entropy inspiration for Integrated Gradients on the GNN flow graph in M3. [DOI](https://dl.acm.org/doi/abs/10.1007/s11063-016-9506-1)
-- Ramasamy, V. — *Capturing Cognition via EEG-Based Functional Brain Networks.* University of New England. [rune.une.edu.au](https://rune.une.edu.au/entities/publication/d6cc649a-2e04-4eb4-84c5-2e5de701af4a)
+**Methodology references**
+
+- Sundararajan, M., Taly, A., & Yan, Q. — *Axiomatic Attribution for Deep Networks (Integrated Gradients).* ICML 2017. https://arxiv.org/abs/1703.01365
+- Hamilton, W., Ying, R., & Leskovec, J. — *Inductive Representation Learning on Large Graphs (GraphSAGE).* NeurIPS 2017. https://arxiv.org/abs/1706.02216
+- Veličković, P., Cucurull, G., Casanova, A., Romero, A., Liò, P., & Bengio, Y. — *Graph Attention Networks (GAT).* ICLR 2018. https://arxiv.org/abs/1710.10903
+- Sun, C. *et al.* — *Lagrangian particle-tracking modeling of microplastic transport.* Frontiers in Toxicology, 2025.
+
+**Real datasets the pipeline is designed for (currently not integrated, see disclosure above)**
+
+- NOAA NCEI Marine Microplastics Database. *Scientific Data*, 2023. https://www.nature.com/articles/s41597-023-02632-y · https://www.ncei.noaa.gov/products/microplastics
+- Rochman, C. — *SLoPP / FLOPP spectral libraries for microplastics research.* Rochman Lab. https://rochmanlab.wordpress.com/spectral-libraries-for-microplastics-research/
+- HydroSHEDS — Hydrological data and maps based on shuttle elevation derivatives at multiple scales. https://www.hydrosheds.org/
+- ECMWF ERA5 reanalysis (wind / weather covariates). https://www.ecmwf.int/
 
 ---
 
