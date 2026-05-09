@@ -701,12 +701,17 @@ def register_callbacks(app):
         [Output("report-station-select", "options"),
          Output("report-station-select", "value")],
         Input("clock-interval", "n_intervals"),
+        State("report-station-select", "value"),
     )
-    def populate_report_dropdown(n):
+    def populate_report_dropdown(n, current_value):
         df = get_stations()
         opts = [{"label": f"{r['station_id']} — {r['name']}", "value": r["station_id"]}
                 for _, r in df.iterrows()]
-        return opts, opts[0]["value"]
+        # Only set the default value on the first call (when the dropdown has no
+        # selection yet). On subsequent ticks, preserve whatever the user picked.
+        if current_value is None:
+            return opts, opts[0]["value"]
+        return opts, no_update
 
     @app.callback(
         Output("report-display", "children"),
