@@ -41,7 +41,7 @@ This project is therefore best read as a **multi-modal pipeline architecture dem
 
 Microplastics are now found in every major river system on Earth, but the field still relies almost entirely on slow, expensive lab-based workflows: collect a water sample, ship it to a lab, count particles under a microscope, and run FTIR/Raman to identify the polymer. By the time a result is published, the pollution event is weeks old and the source is gone.
 
-**MicroPlastiNet is an end-to-end engineering prototype that demonstrates how such a loop *could* be closed in under 10 seconds, end-to-end on synthetic data.** It combines six tightly-integrated modules:
+**MicroPlastiNet is an end-to-end engineering prototype that demonstrates how such a loop *could* be automated end-to-end on synthetic data.** It combines six tightly-integrated modules:
 
 - **An IoT edge node** (simulated ESP32-CAM with turbidity, TDS, and 6-channel NIR sensors) that detects suspicious particles in real time and streams cryptographically-signed payloads to the cloud.
 - **Two deep-learning classifiers** — a CNN that counts and sizes particles from camera images, and a 1D-CNN that identifies the polymer type (PE, PET, PP, PS, PVC) from its spectral fingerprint.
@@ -72,7 +72,7 @@ The goal is to demonstrate the end-to-end *architecture* of a multi-modal, sourc
 [ M4 — Compliance Dashboard  +  M5 — GenAI Regulator Reports ]
 ```
 
-A single sample of river water is sensed, identified, traced back to its likely upstream source, and converted into a structured compliance report (synthetic prototype) — in under 10 seconds.
+A single sample of river water is sensed, identified, traced back to its likely upstream source, and converted into a structured compliance report (synthetic prototype).
 
 ---
 
