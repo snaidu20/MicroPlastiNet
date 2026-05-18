@@ -272,7 +272,7 @@ python -m src.m5_genai.report_generator --station STN-003 --out report.pdf
 
 ---
 
-## Real datasets the pipeline plugs into
+## Real datasets the pipeline is designed to ingest (not currently loaded)
 
 | Dataset | Used by | URL |
 |---|---|---|
@@ -284,7 +284,7 @@ python -m src.m5_genai.report_generator --station STN-003 --out report.pdf
 | HydroSHEDS river network | M3 graph topology | https://www.hydrosheds.org/ |
 | ERA5 wind / weather reanalysis | M3 covariates | https://cds.climate.copernicus.eu/datasets/reanalysis-era5-single-levels |
 
-> The repo ships with **physics-informed synthetic data** for every module so the pipeline runs end-to-end on any laptop. Drop the real CSVs / TIFFs into `data/raw/` and every loader picks them up automatically.
+> **Today the pipeline runs entirely on physics-informed synthetic data — `data/raw/` is empty.** Each loader is implemented against the real-dataset schema above, so dropping the real CSVs / TIFFs into `data/raw/` would activate them automatically. No real records have been loaded yet.
 
 ---
 
